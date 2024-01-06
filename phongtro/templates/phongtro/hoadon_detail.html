@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Chi Tiết Hóa Đơn</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .invoice-details {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #333;
+            font-size: 28px;
+        }
+        h2 {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        h3 {
+            font-size: 20px;
+        }
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 18px;
+        }
+        .print-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .print-button button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            transition-duration: 0.4s; /* Add transitions for hover effects */
+        }
+        .print-button button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="invoice-details">
+        <h1>Chi Tiết Hóa Đơn</h1>
+
+        <h2>Mã Hóa Đơn: {{ hoadon.id }}</h2>
+        
+        <h3>Tên Phòng: {{ hoadon.ten_phong.ten_phong }}</h3>
+        <p>Ngày Phát Hóa Đơn: {{ hoadon.ngay_co_hoa_don }}</p>
+        <p>Ngày Thanh Toán: {{ hoadon.ngay_thanh_toan }}</p>
+        <p>Tổng Tiền: {{ hoadon.tong_cong }}</p>
+        <p>Trạng Thái: {{ hoadon.trang_thai }}</p>
+
+        <!-- Thêm các trường thông tin hóa đơn khác ở đây -->
+
+        <div class="print-button">
+            <button onclick="window.print()">In Hóa Đơn</button>
+        </div>
+        <a href="{% url 'hoadon-list' %}">Quay lại danh sách Hóa Đơn</a>
+    </div>
+</body>
+</html>

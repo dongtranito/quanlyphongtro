@@ -1,0 +1,95 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    background-color: #a8e3f6;
+    font-size: 20px;
+    line-height: 60px;
+    position:fixed;
+    width: 100%;
+}
+
+.header div{
+    padding: 0px 40px;
+}
+
+.headerimage{
+    background-image: url("images/phongtro2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+.contact{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact p{
+    padding: 20px;
+}
+
+.body{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 40px 0px;
+}
+.anh{
+    width: 30%;
+    height: 75vh;
+    background-image: url('images/phongtro1.jpg'); /* Thay 'image.jpg' bằng đường dẫn đến tệp hình ảnh của bạn */
+    background-repeat: no-repeat;
+    background-size: cover; /* Tuỳ chỉnh kích thước hình ảnh */
+
+}
+/* CSS */
+.footer {
+    background-color: #a8e3f6;
+    color: black;
+        padding: 20px;
+}
+
+/* Định dạng phần contact */
+.contact {
+    background-color: #c9e5ee;;
+
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Định dạng tiêu đề contact_header */
+.contact_header {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Định dạng contact_body */
+.contact_body {
+    font-size: 18px;
+    color: #0073e6;
+}
+
+/* Định dạng giatro */
+.giatro {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff6600;
+}
+
+/* Định dạng mota */
+.mota {
+    font-size: 16px;
+}
+
+.login:hover{
+    background-color: #0073e6;
+}

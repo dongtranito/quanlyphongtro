@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tổng quan khu trọ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #header {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        #menu {
+            display: inline-block;
+        }
+        #menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        #menu ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #dee2e6;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1 style="margin:0;">Trang Chính</h1>
+        <div>
+            <div id="menu">
+                <ul>
+                    <li><a href="{% url 'phong-list' %}">Danh sách phòng</a></li>
+                    <li><a href="{% url 'hoadon-list' %}">Danh sách hóa đơn</a></li>
+                    <li><a href="{% url 'khachhang-list' %}">Danh sách khách hàng</a></li>
+                </ul>
+            </div>
+            <div id="logout">
+                <a href="{% url 'logout' %}">LogOut</a>
+            </div>
+        </div>
+    </div>
+
+    <h1>Tổng quan khu trọ</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Tên Phòng</th>
+                <th>Trạng Thái Phòng</th>
+                <th>Ngày Đặt</th>
+                <th>Số Điện Thoại</th>
+                <th>Trạng Thái Thanh Toán</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tong_quan_phong in tong_quan_du_lieu %}
+                <tr>
+                    <td>{{ tong_quan_phong.ten_phong }}</td>
+                    <td>{{ tong_quan_phong.trang_thai }}</td>
+                    <td>{{ tong_quan_phong.ngay_dat }}</td>
+                    <td>{{ tong_quan_phong.so_dien_thoai_nhan_hoa_don}}</td>
+                    <td>{{ tong_quan_phong.trang_thai_thanh_toan }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5">Không có thông tin phòng nào</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
+

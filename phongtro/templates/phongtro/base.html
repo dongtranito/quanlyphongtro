@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Trang Web Cơ Sở{% endblock %}</title>
+</head>
+<body>
+
+<div id="header">
+    <h1>Trang Web Của Bạn</h1>
+</div>
+
+<div id="content">
+    {% block content %}{% endblock %}
+</div>
+
+<div id="footer">
+    <p>&copy; {{ year|date:"Y" }} Trang Web Của Bạn. Bảo lưu mọi quyền.</p>
+</div>
+
+</body>
+</html>

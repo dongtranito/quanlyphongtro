@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chi tiết phòng: {{ phong.ten_phong }}</title>
+</head>
+<body>
+  <h2>Chi tiết phòng: {{ phong.ten_phong }}</h2>
+  <p>Tên phòng: {{ phong.ten_phong }}</p>
+  <p>Giá phòng: {{ phong.gia_phong }}</p>
+  <p>Giá nước: {{ phong.gia_nuoc }}</p>
+  <p>Giá điện: {{ phong.gia_dien }}</p>
+  <p>Mô tả: {{ phong.mo_ta }}</p>
+  <p>Trạng thái: {{ phong.get_trang_thai_display }}</p>
+  <a href="{% url 'phong-update' phong.ten_phong %}">Chỉnh sửa</a>
+  <a href="{% url 'phong-delete' phong.ten_phong %}">Xóa</a>
+  <a href="{% url 'phong-list' %}">Quay lại danh sách</a>
+</body>
+</html>

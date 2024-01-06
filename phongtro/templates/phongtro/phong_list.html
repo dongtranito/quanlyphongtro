@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh Sách Phòng</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px 20px;
+        }
+        #menu {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        #menu li {
+            display: inline;
+            margin-right: 10px;
+        }
+        main {
+            margin-top: 20px;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+        }
+        table, th, td {
+            border: 1px solid #dee2e6;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f8f9fa;
+        }
+        .actions a {
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        h2 {
+            font-size: 24px;
+        }
+        .no-underline {
+            text-decoration: none;
+        }
+        /* Tùy chỉnh màu khi hover hoặc active */
+        .no-underline:hover,
+        .no-underline:active {
+            color: initial;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="{%url 'home'%}" class="no-underline">Home</a></h1>
+        <nav id="menu">
+            <ul>
+                <li><a href="{% url 'phong-new' %}" class="no-underline">Tạo Phòng Mới</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Danh Sách phòng</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tên Phòng</th>
+                    <th>Giá Phòng</th>
+                    <th>Giá Nước</th>
+                    <th>Giá Điện</th>
+                    <th>Mô Tả</th>
+                    <th>Trạng Thái</th>
+                    <th>Hành Động</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for phong in phong_list %}
+                    <tr>
+                        <td>{{ phong.ten_phong }}</td>
+                        <td>{{ phong.gia_phong }}</td>
+                        <td>{{ phong.gia_nuoc }}</td>
+                        <td>{{ phong.gia_dien }}</td>
+                        <td>{{ phong.mo_ta }}</td>
+                        <td>{{ phong.trang_thai }}</td>
+
+                        <td class="actions">
+                            <a href="{% url 'phong-update' phong.ten_phong %}" class="no-underline">Sửa</a>|
+                            <a href="{% url 'phong-delete' phong.ten_phong %}" class="no-underline">Xóa</a>|
+                            <a href="{% url 'tra_phong' phong.ten_phong %}" class="no-underline">Trả Phòng</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>

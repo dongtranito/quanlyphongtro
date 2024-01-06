@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href=" {% static 'quancao/style.css'%}">
+    
+    <title>9B Trịnh Hoài Đức</title>
+</head>
+<body>
+    <div class="header">
+        <div>9B/Trịnh Hoài Đức/Hiệp Phú/Quận 9/Hồ Chí Minh</div> 
+        <div onmouseover="this.style.backgroundColor='red';" onmouseout="this.style.backgroundColor='initial';">
+            <a href="{% url 'login' %}" style="text-decoration: none; color: black;">Login</a>
+        </div>
+        
+    </div>
+    <div class="headerimage"></div>
+    <div class="contact">
+        <p class="contact_header">
+            9b Trịnh Hoài Đức/Hiệp Phú/Quận 9/Hồ Chí Minh
+        </p>
+        <p class="contact_body">
+            0959995999
+        </p>
+        <p class="giatro">
+            Giá Trọ 2 Triệu 1 tháng
+        </p>
+        <p class="mota">
+            Gần Chợ, Trường Sư Phạm Kỷ Thuật, Bưu Chính Viễn thông
+        </p>
+    </div>
+    <div class="body">
+        <div class="anh"></div>
+        <div class="anh"></div>
+        <div class="anh"></div>
+    </div>
+
+    <div class="footer">
+        &copy;Công ty Dong Tran i to
+    </div>
+</body>
+</html>

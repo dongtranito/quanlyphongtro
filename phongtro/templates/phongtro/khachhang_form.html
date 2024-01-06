@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo Khách Hàng Mới</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px 20px;
+        }
+        .no-underline {
+            text-decoration: none;
+        }
+        .no-underline:hover,
+        .no-underline:active {
+            color: initial;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="{%url 'home'%}" class="no-underline">Home</a></h1>
+        <a href="{% url 'khachhang-list' %}" class="no-underline back-link">Quay lại danh sách Khách Hàng</a>
+    </header>
+    <h1>Tạo Khách Hàng Mới</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Tạo Khách Hàng</button>
+    </form>
+</body>
+</html>
+
+
+    

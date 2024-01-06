@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chi tiết khách hàng</title>
+</head>
+<body>
+    <h1>Chi tiết khách hàng: {{ khachhang.ten }}</h1>
+    <p>Tên: {{ khachhang.ten }}</p>
+    <p>Số điện thoại: {{ khachhang.so_dien_thoai }}</p>
+
+    <h2>Chỉnh sửa khách hàng</h2>
+    <form method="post" action="{% url 'khachhang-detail' khachhang.pk %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Lưu</button>
+    </form>
+
+    <h2>Xóa khách hàng</h2>
+    <form method="post" action="{% url 'khachhang-delete' khachhang.pk %}">
+        {% csrf_token %}
+        <button type="submit">Xóa</button>
+    </form>
+</body>
+</html>

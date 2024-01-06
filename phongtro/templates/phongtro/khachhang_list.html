@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh Sách Khách Hàng</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px 20px;
+        }
+        #menu {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        #menu li {
+            display: inline;
+            margin-right: 10px;
+        }
+        main {
+            margin-top: 20px;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+        }
+        table, th, td {
+            border: 1px solid #dee2e6;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f8f9fa;
+        }
+        .actions a {
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        h2 {
+            font-size: 24px;
+        }
+        .no-underline {
+            text-decoration: none;
+        }
+        .no-underline:hover,
+        .no-underline:active {
+            color: initial;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="{%url 'home'%}" class="no-underline">Home</a></h1>
+        <nav id="menu">
+            <ul>
+                <li><a href="{% url 'khachhang-new' %}" class="no-underline">Tạo Khách Hàng Mới</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Danh Sách Khách Hàng</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tên</th>
+                    <th>Số Căn Cước</th>
+                    <th>Biển Số Xe</th>
+                    <th>Số Điện Thoại</th>
+                    <th>Vân Tay</th>
+                    <th>Hành Động</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for khachhang in khachhang_list %}
+                    <tr>
+                        <td>{{ khachhang.ten }}</td>
+                        <td>{{ khachhang.can_cuoc }}</td>
+                        <td>{{ khachhang.bien_so_xe }}</td>
+                        <td>{{ khachhang.so_dien_thoai }}</td>
+                        <td>{{ khachhang.van_tay }}</td>
+                        <td class="actions">
+                            <a href="{% url 'khachhang-update' khachhang.id %}" class="no-underline">Sửa</a>|
+                            <a href="{% url 'khachhang-delete' khachhang.id %}" class="no-underline">Xóa</a> 
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr><td colspan="6">Không có khách hàng nào.</td></tr> 
+                {% endfor %}
+            </tbody>
+        </table> 
+    </main> 
+</body> 
+</html> 

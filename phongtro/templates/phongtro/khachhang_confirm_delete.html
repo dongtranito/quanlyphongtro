@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Xác Nhận Xóa Khách Hàng</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .confirmation-box {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 500px;
+        }
+        h1 {
+            color: #333;
+            font-size: 28px;
+        }
+        p {
+            font-size: 20px;
+            margin: 20px 0;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        button {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 20px 0;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #c82333;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 18px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="confirmation-box">
+        <h1>Xác Nhận Xóa Khách Hàng</h1>
+        <p>Bạn có chắc chắn muốn xóa khách hàng "{{ khachhang.ten }}" không?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Xóa Khách Hàng</button>
+            <a href="{% url 'khachhang-list' %}">Hủy</a>
+        </form>
+    </div>
+</body>
+</html>
